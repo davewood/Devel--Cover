@@ -42,6 +42,14 @@ $Devel::Cover::DB::Ignore_filenames = qr/   # Used by Devel::Cover
         (?: \( defined \s at \s .* \s line \s \d+ \) | defined \s at )
     )
     | # Moose
+    (?:
+        (?:
+            reader | accessor
+        )
+        \s Moose::Meta::Class::__ANON__::SERIAL::\d+::[a-z_]+ \s
+        \( unknown \s origin \)
+    )
+    | # Moose
     (?: generated \s method \s \( unknown \s origin \) )
     | # Mouse
     (?: (?: rw-accessor | ro-accessor ) \s for )
